@@ -15,8 +15,8 @@
   },
   "license": "MIT",
   "keywords": [
-    "node",
-    "glitch",
-    "express"
+    "json",
+    "database",
+    "db"
   ]
 }

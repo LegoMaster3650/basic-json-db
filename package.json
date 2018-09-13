@@ -1,0 +1,22 @@
+{
+  "name": "json-db",
+  "version": "0.0.1",
+  "description": "A simple JSON database system that lets you access a json file as if it were a normal JSON object.",
+  "main": "./src/jsondb.js",
+  "scripts": {
+    "start": "node ./src/jsondb.js"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/json-db"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}

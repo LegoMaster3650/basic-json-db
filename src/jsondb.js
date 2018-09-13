@@ -4,11 +4,11 @@ module.exports = function(path, cb) {
     console.error('No callback defined')
     return null
   }
-  var exp = {}
-  exp.path = (typeof path === 'string' ? path : path.toString ? path.toString() : './db.json')
+  var exp = this
+  this.path = (typeof path === 'string' ? path : path.toString ? path.toString() : './db.json')
   var fs = require('fs')
-  exp.db = {}
-  exp.set = function(key, val, clb) {
+  this.db = {}
+  this.set = function(key, val, clb) {
     var that = exp.db
     that[(typeof key === 'string' ? key : key.toString ? key.toString() : null)] = (typeof val === 'string' ? val : val.toString ? val.toString() : JSON.stringify(val) ? JSON.stringify(val) : null)
     that = JSON.stringify(that)
@@ -20,7 +20,7 @@ module.exports = function(path, cb) {
       clb(err)
     })
   }
-  exp.db = {}
+  this.db = {}
   fs.readFile(exp.path, 'utf8', function(err, data) {
     if (err) throw err
     data = data.replace(/(['"])((?:\\\1|.)*?)\1|([^\W0-9"']+)/g, function(mat, c1, c2, c3) {
@@ -32,6 +32,5 @@ module.exports = function(path, cb) {
       exp.db[datk[i]] = dat[datk[i]]
     }
     cb(err, exp)
-    return exp
   })
 }
